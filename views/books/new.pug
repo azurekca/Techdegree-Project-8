@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   h2= title
-  //- include validationErrors
+  include validationErrors
   form(action="/books", method="post")
     include form
     p: input(type="submit", value="Add Book")
