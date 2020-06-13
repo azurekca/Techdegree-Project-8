@@ -29,7 +29,8 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
 	// set locals
 	res.locals.message = err.message;
-  res.locals.error = err;
+	res.locals.error = err;
+	console.log(req.path) //** helps me remember about favicon */
 	console.log(err);
 	// render the error page
 	res.status(err.status || 500);
