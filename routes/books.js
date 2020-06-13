@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { Book } = require('../models');
-//// const Sequelize = require('sequelize');
 const { Op } = require("sequelize");
 
 /* Handler function to wrap each route. */
@@ -33,6 +32,16 @@ router.get('/', asyncHandler(async (req, res) => {
           },
           {
             author: {
+              [Op.like]: `%${req.query.search}%`
+            }
+          },
+          {
+            genre: {
+              [Op.like]: `%${req.query.search}%`
+            }
+          },
+          {
+            year: {
               [Op.like]: `%${req.query.search}%`
             }
           }
