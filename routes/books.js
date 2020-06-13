@@ -19,42 +19,48 @@ function asyncHandler(callback) {
 
 /* GET books listing. */
 router.get('/', asyncHandler(async (req, res) => {
-  let books;
-  if (req.query.search) {
-    console.log(req.query.search)
+	let books = [];
+	let searchStr = req.query.search;
+  if (searchStr) {
+    console.log(searchStr)
     books = await Book.findAll({
       where: {
         [Op.or]: [
           {
             title: {
-              [Op.like]: `%${req.query.search}%`
+              [Op.like]: `%${searchStr}%`
             }
           },
           {
             author: {
-              [Op.like]: `%${req.query.search}%`
+              [Op.like]: `%${searchStr}%`
             }
           },
           {
             genre: {
-              [Op.like]: `%${req.query.search}%`
+              [Op.like]: `%${searchStr}%`
             }
           },
           {
             year: {
-              [Op.like]: `%${req.query.search}%`
+              [Op.like]: `%${searchStr}%`
             }
           }
         ]
       }
-    })
-    console.log(books)
-    // TODO check if no books found and display message to user
-  } else {
+    });
+    console.log(books.length);
+    // TODO display message to user with search term and num results found
+	} else searchStr= '';
+	if (books.length === 0) {
     // get all books in the database and order alphabetically
     books = await Book.findAll({ order: [ [ 'title', 'ASC' ] ] });
   }
-  res.render('books/index', { books, title: 'Library Catalog' });
+  res.render('books/index', {
+		books,
+		title: 'Library Catalog',
+		searchStr 
+	 });
 }));
 
 /* Create a new book page. */
@@ -104,7 +110,7 @@ router.post('/:id',	asyncHandler(async (req, res) => {
 				await book.update(req.body);
 				res.redirect('/books');
 			} else {
-				throw Error('Our sincerest apologies, we could not find that book.');
+				throw Error('Our sincerest apologies, we could not find that book and thus we could not update it.');
 			}
 		} catch (error) {
 			if (error.name === 'SequelizeValidationError') {
