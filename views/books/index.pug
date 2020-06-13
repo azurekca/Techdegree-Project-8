@@ -1,18 +1,21 @@
 extends ../layout
 
 block content
-  p: a.button(href="/books/new") Create New Book
-  table
-    thead
-      tr
-        th Title
-        th Author
-        th Genre
-        th Year
-    tbody
-      each book in books
+  main#main-content
+    p: a.button(href="/books/new") Create New Book
+    table
+      thead
         tr
-          td: a(href="/books/" + book.id) #{book.title}
-          td= book.author
-          td= book.genre
-          td= book.year
+          th Title
+          th Author
+          th Genre
+          th Year
+      tbody
+        each book in books
+          tr.tr-book
+            td: a(href="/books/" + book.id) #{book.title}
+            td= book.author
+            td= book.genre
+            td= book.year
+
+  script(src="/js/script.js")
