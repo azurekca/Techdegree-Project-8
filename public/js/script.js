@@ -3,7 +3,7 @@
  *  ITEMS_TO_SHOW - number of elements to show per page
  *  rows - HTMLCollection of book table rows; this is what elements will refer to
  */
-const ITEMS_TO_SHOW = 10;
+const ITEMS_TO_SHOW = 20;
 const rows = document.getElementsByClassName('tr-book');
 
 /**
@@ -35,33 +35,35 @@ function showPage(elements, pageNum) {
 function appendPageLinks(elements) {
 	// Determine how many links will be required
 	const numPages = Math.ceil(elements.length / ITEMS_TO_SHOW);
-	// set up new div and ul to add links to
+	// set up new nav and buttons to add links to
 	const pageDiv = document.getElementById('main-content');
-	const linkDiv = document.createElement('div');
-	linkDiv.classList.add('pagination');
-	const ul = document.createElement('ul');
+	const linkNav = document.createElement('nav');
+	linkNav.classList.add('pagination');
 
 	// make pagination links
 	for (let i = 1; i <= numPages; i++) {
-		const li = document.createElement('li');
+		const p = document.createElement('p');
 		const a = document.createElement('a');
-		a.setAttribute('href', '#');
+    a.setAttribute('href', '#');
+    a.classList = 'button';
 		a.innerText = i;
-		li.appendChild(a);
-		ul.appendChild(li);
-	}
+    p.appendChild(a);
+    linkNav.appendChild(p);
+  }
+  
 	// add 'active' class to first link
-	ul.firstElementChild.firstElementChild.classList.add('active');
-
-	// add ul with links to page
-	linkDiv.appendChild(ul);
-	pageDiv.appendChild(linkDiv);
+	linkNav.firstElementChild.classList.add('active');
+	// add buttons with links to page
+	pageDiv.appendChild(linkNav);
 }
 
-// Paginate the HTML elements and start on first page
-showPage(rows, 1);
-// create pagination links
-appendPageLinks(rows);
+// check if there are any elements to paginate
+if (rows.length > 0) {
+	// Paginate the HTML elements and start on first page
+	showPage(rows, 1);
+	// create pagination links
+	appendPageLinks(rows);
+}
 
 // add event handler to page
 document.addEventListener('click', event => {
