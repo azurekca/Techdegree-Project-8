@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  p: a(href="/books") Back to Library
-  h2 This is page-not-found.pug
-  p= message
-  p= error.status
+  main
+    p: a(href="/books") Back to Library
+    h2 #{error.status} #{message}
+    img#surprised(src="/img/ron-burgundy-surprised.png", alt="Ron Burgundy is very surprised at this outcome.")
+     

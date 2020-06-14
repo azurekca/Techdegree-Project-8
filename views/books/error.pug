@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
-  h2 Book Error
-  p= message
-  p: a(href="/books") Back to Library
+  main
+    h2 Book Error: #{message}
+    p: a(href="/books") Back to Library
+    img#disappointed(src="/img/ron-burgundy-disappointed.png", alt="Ron Burgundy is disappointed in you.")

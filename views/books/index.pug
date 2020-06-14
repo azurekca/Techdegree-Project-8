@@ -1,21 +1,29 @@
 extends ../layout
 
 block content
+  form#search-form(action="/books", method="get")
+    label(for="search") Search
+    input(name="search" type="search" id="search" value=searchStr)
+    input(type="submit" value="Search")
+    a#clear-search(href="/books") Clear Search
+    a#new-book(href="/books/new") Create New Book
   main#main-content
-    p: a.button(href="/books/new") Create New Book
-    table
-      thead
-        tr
-          th Title
-          th Author
-          th Genre
-          th Year
-      tbody
-        each book in books
-          tr.tr-book
-            td: a(href="/books/" + book.id) #{book.title}
-            td= book.author
-            td= book.genre
-            td= book.year
-
+    if books.length > 0
+      table
+        thead
+          tr
+            th Title
+            th Author
+            th Genre
+            th Year
+        tbody
+          each book in books
+            tr.tr-book
+              td: a(href="/books/" + book.id) #{book.title}
+              td= book.author
+              td= book.genre
+              td= book.year
+    else
+      h3 Sorry, no results
+      
   script(src="/js/script.js")

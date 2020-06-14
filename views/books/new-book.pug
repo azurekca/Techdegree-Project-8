@@ -1,9 +1,10 @@
 extends ../layout
 
 block content
-  h2= title
-  include validationErrors
-  form(action="/books", method="post")
-    include form
-    p: input(type="submit", value="Add Book")
-    p: a.button(href="/books") Cancel
+  main#book-form
+    h2= title
+    include validationErrors
+    form(action="/books", method="post")
+      include form
+      input(type="submit", value="Add Book")
+      a#cancel(href="/books") Cancel

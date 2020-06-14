@@ -4,14 +4,13 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title= title
-    //- TODO find a better font
+    link(href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=MuseoModerno:wght@600&display=swap" rel="stylesheet")
+    link(rel="stylesheet", href="/stylesheets/reset.css")
     link(rel="stylesheet", href="/stylesheets/style.css")
   body
     header
-      h1= "My Library"
-      form(action="/books", method="get")
-        label(for="search") Search
-        input(name="search" type="search" id="search" value=searchStr)
-        input(type="submit" value="Search")
-        p: a(href="/books") Clear Search
+      h1= "Biblioteka Agaty"
+        
     block content
+    footer
+      img#books(src="/img/leather-bound-books.gif", alt="leather bound books")
