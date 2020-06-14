@@ -49,11 +49,9 @@ router.get('/', asyncHandler(async (req, res) => {
         ]
       }
     });
-    console.log(books.length);
-    // TODO display message to user with search term and num results found
-	} else searchStr= '';
-	if (books.length === 0) {
-    // get all books in the database and order alphabetically
+	} else {
+		searchStr= '';
+	  // get all books in the database and order alphabetically
     books = await Book.findAll({ order: [ [ 'title', 'ASC' ] ] });
   }
   res.render('books/index', {
@@ -104,6 +102,7 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
 /* Update a book. */
 router.post('/:id',	asyncHandler(async (req, res) => {
 		let book;
+		let title;
 		try {
 			book = await Book.findByPk(req.params.id);
 			if (book) {
@@ -114,9 +113,10 @@ router.post('/:id',	asyncHandler(async (req, res) => {
 			}
 		} catch (error) {
 			if (error.name === 'SequelizeValidationError') {
+				title = book.title;
 				book = await Book.build(req.body);
 				book.id = req.params.id;
-				res.render('books/update-book', { book, errors: error.errors, title: 'Update Book' });
+				res.render('books/update-book', { book, errors: error.errors, title });
 			} else {
 				throw Error("We're so sorry, there was a problem with updating that book.");
 			}
