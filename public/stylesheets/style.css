@@ -1,98 +1,441 @@
+:root {
+	--raisin-black: rgb(45, 43, 50);
+	--dark-sienna: #481b28;
+	--burgundy: #800626;
+	--catawba: #70283d;
+	--orange: #d6541b;
+	--orange-light: #e97949;
+	--pine-tree: #272f28;
+	--blue-green: #0090b7;
+	--gold: #ead185;
+	--white: #fcf8ee;
+}
+
+* {
+	box-sizing: border-box;
+}
+
 body {
-  padding: 10px 50px 50px;
-  font: 18px "Garamond", serif;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 5fr;
+	padding: 10px 0 50px;
+	font: 17px 'Merriweather', "Garamond", serif;
+	background-color: var(--raisin-black);
+	color: var(--white);
 }
 
-a {
-  color: #019875;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.4s;
+header {
+	padding: 1rem;
 }
 
-a:hover {
-  color: black;
+main {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	max-width: 1000px;
+	z-index: 10;
 }
 
-a.button, input[type=submit] {
-  color: white;
-  background: #019875;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding: 10px 14px 12px;
-  font-size: 14px;
-  border-radius: 2px;
-  cursor: pointer;
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 0.75rem;
+	max-width: 1000px;
 }
 
-form a.button, input[type=submit] {
-  margin-left: 140px;
-  transition: 0.4s;
+section#validation {
+	background-color: var(--burgundy);
+	border-radius: 1rem;
+	padding: 1.5rem;
+	box-shadow: 0 0 10px 10px var(--gold);
+	margin-bottom: 2rem;
+	line-height: 1.6;
 }
 
-input[type=submit] {
-  border: 0;
+h1,
+h2, h3 {
+	font-family: 'MuseoModerno', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-weight: 300;
+	color: var(--gold);
+	text-shadow: 0px -1px 2px rgba(255, 255, 255, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.5);
+	background: linear-gradient(178deg, var(--white) 0%, var(--gold) 8%, #e4c462 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
-  a.button:hover, input[type=submit]:hover,
-  a.button:focus, input[type=submit]:focus {
-    background-color: #01b189;
-  }
-
-p {
-  margin: 20px auto;
-}
-
-ul {
-  padding: 0;
-  list-style-type: none;
-  margin-bottom: 10px;
-  line-height: 1.3em;
+h1 {
+	font-size: 2.5rem;
 }
 
 h2 {
-  border-top: 2px solid #e7e7e7;
-  padding-top: 20px;
+	font-size: 2rem;
+	padding: 1.3rem 0;
+}
+
+h3 {
+	font-size: 1.75rem;
+	padding-bottom: 0.8rem;
+}
+
+a {
+	color: var(--orange-light);
+	text-decoration: none;
+	font-family: inherit;
+	font-weight: 700;
+	transition: 0.4s;
+	text-align: center;
+	padding: 1.5rem 0 0.75rem;
+	display: block;
+}
+
+a:hover {
+	color: var(--blue-green);
+}
+
+a.button,
+input[type=submit] {
+	color: var(--gold);
+	background: var(--catawba);
+	font-family: inherit;
+	padding: 10px 14px 12px;
+	font-size: 17px;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-top: 0.75rem;
+}
+
+form a.button,
+input[type=submit] {
+	transition: 0.4s;
+}
+
+input[type=submit] {
+	border: 0;
+}
+
+a.button:hover,
+input[type=submit]:hover,
+a.button:focus,
+input[type=submit]:focus {
+	background-color: var(--dark-sienna);
+}
+
+#new-book {
+	margin-bottom: 2rem;
+}
+
+table {
+	width: 100%;
+	margin-top: 1rem;
+	border-collapse: collapse;
+	border-radius: 1rem;
+	overflow: hidden;
+	box-shadow: 0 0 10px 1px var(--gold);
 }
 
 th {
-  border-bottom: 2px solid #D8B493;
-  text-align: left;
-  padding: 5px 20px 5px 10px;
+	border-collapse: collapse;
+	border-bottom: 2px solid var(--gold);
+	text-align: left;
+	padding: 10px 25px 10px 15px;
 }
 
 tr {
-  min-height: 50px;
+	min-height: 50px;
+	background-color: var(--dark-sienna);
 }
 
 tr:nth-child(2n) {
-  background: #E7E7E7;
+	background: var(--catawba);
 }
 
 td {
-  padding: 5px 20px 5px 10px;
+	padding: 8px 25px 7px 10px;
+}
+
+td a {
+	text-align: left;
 }
 
 label {
-  font-weight: bold;
-  min-width: 130px;
-  display: inline-block;
-  transition: 0.4s;
+	padding-top: 16px;
+	padding-bottom: 5px;
+	transition: 0.4s;
+	display: block;
 }
 
 input {
-  padding: 10px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  border-radius: 2px;
-  border-color: #E7E7E7;
-  transition: 0.4s;
+	padding: 10px 14px 12px;
+	font-size: 15px;
+	font-family: inherit;
+	color: var(--pine-tree);
+	border: 3px inset ThreeDlightShadow;
+	border-color: var(--gold);
+	background-color: var(--white);
+	transition: 0.4s;
+	margin-top: 0.75rem;
+	
 }
 
 input[type=text] {
-  margin-left: 7px;
-  width: 300px;
+	width: 100%;
+}
+
+input#year {
+	margin-bottom: 2rem;
+}
+
+input:focus {
+	outline: 3px inset var(--orange);
+	border-color: var(--orange);
+	box-shadow: 0 0 0 3px var(--orange-light)
 }
 
 .error {
-  color: rgb(236, 15, 15);
+	color: var(--gold);
+}
+
+.pagination {
+	margin: 2rem;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.pagination p {
+	display: inline-block;
+	margin: 0.25rem;
+}
+
+img#books {
+	max-width: 100%;
+	height: auto;
+	display: inline-block;
+	padding: 1rem 3rem;
+	filter: drop-shadow(0px 5px 8px black);
+}
+
+img#disappointed {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+
+img#surprised {
+	position: absolute;
+	bottom: 0;
+	z-index: -1;
+}
+
+/* Fancy pants table re-formatting for nice display on screens narrower than 500px
+   https://css-tricks.com/responsive-data-tables/ */
+@media (max-width: 500px) {
+	/* Force table to not be like tables anymore */
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	table {
+		border-radius: 0;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		border: 1px solid var(--gold);
+	}
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid var(--white);
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before {
+		content: "Title";
+	}
+	td:nth-of-type(2):before {
+		content: "Author";
+	}
+	td:nth-of-type(3):before {
+		content: "Genre";
+	}
+	td:nth-of-type(4):before {
+		content: "Year";
+	}
+}
+
+@media (min-width: 600px) {
+	body {
+		padding-left: 50px;
+		padding-right: 50px;
+		justify-items: center;
+	}
+
+	main {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		margin: 0;
+		justify-self: stretch;
+	}
+
+	header {
+		justify-self: start;
+	}
+
+	form {
+		/* grid settings */
+		grid-column-start: 1;
+		grid-column-end: 2;
+		justify-self: stretch;
+
+		/* flexbox settings */
+		flex-flow: row wrap;
+		justify-content: flex-end;
+		align-items: center;
+
+		padding: 1.5rem;
+		box-shadow: 0 0 10px 1px var(--gold);
+		border-radius: 1rem;
+		background-color: var(--pine-tree);
+		margin-bottom: 2rem;
+	}
+
+	footer {
+		justify-self: end;
+		/* align-self: end; */
+		text-align: right;
+		z-index: -2;
+	}
+
+	#new-book {
+		text-align: left;
+		margin-bottom: 0;
+		flex-basis: 70%;
+	}
+	#clear-search {
+		order: 1;
+		flex-basis: 30%;
+		margin: 0 auto;
+		text-align: right;
+		font-weight: 400;
+	}
+
+	#cancel {
+		padding: 0 1.5rem;
+	}
+
+	input[type="submit"] {
+		margin-top: 0;
+		padding: 0.6rem 24px 0.8rem;
+		margin-left: 1.25rem;
+		margin-top: 0;
+		flex-shrink: 1;
+	}
+
+	input[type=search] {
+		margin-left: 1rem;
+		margin-top: 0;
+		flex-grow: 1;
+		flex-shrink: 10;
+	}
+
+	label {
+		padding: 0.6rem 0.25rem 0.5rem 0;
+	}
+
+	td a {
+		padding-top: 0.75rem;
+	}
+
+	div {
+		flex-basis: 100%;
+	}
+
+	div label {
+		display: inline-block;
+		width: 70px;
+	}
+
+	input[type=text] {
+		margin-bottom: 0.75rem;
+		max-width: 380px;
+	}
+
+	a {
+		display: inline-block;
+	}
+
+	a.button {
+		margin-top: 0rem;
+	}
+	img#books {
+		max-width: 80%;
+		
+	}
+}
+
+@media (min-width: 1177px) {
+	body {
+		padding-left: 100px;
+		padding-right: 50px;
+		grid-template-columns: 3fr 2fr;
+	}
+
+	header {
+		font-size: 3.5rem;
+		padding: 3rem;
+	}
+
+	form {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	div label {
+		width: 130px;
+	}
+
+	footer {
+		grid-column: 2/3;
+		grid-row: 2/5;
+		justify-self: center;
+		/* align-self: start; */
+		text-align: center;
+	}
+	img#books {
+		max-width: 100%;
+		top: 30%;
+		position: sticky;
+		padding-right: 0;
+		padding-top: 1rem;
+		
+	}
 }
