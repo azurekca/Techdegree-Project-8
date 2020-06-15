@@ -3,7 +3,7 @@
  *  ITEMS_TO_SHOW - number of elements to show per page
  *  rows - HTMLCollection of book table rows; this is what elements will refer to
  */
-const ITEMS_TO_SHOW = 20;
+const ITEMS_TO_SHOW = 10;
 const rows = document.getElementsByClassName('tr-book');
 
 /**
@@ -52,7 +52,7 @@ function appendPageLinks(elements) {
   }
   
 	// add 'active' class to first link
-	linkNav.firstElementChild.classList.add('active');
+	linkNav.firstElementChild.firstElementChild.classList.add('active');
 	// add buttons with links to page
 	pageDiv.appendChild(linkNav);
 }
