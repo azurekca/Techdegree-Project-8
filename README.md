@@ -3,6 +3,10 @@
 
  An app to catalog your magnificent collection of leather bound books. Create, read, update and delete books from the catalog. You can also search for books by any attribute. Results are paginated.
 
+ ### How to Use
+
+ Download or clone the repository and run in the terminal with npm start.
+
  ### Built Using
 
  - SQLite
