@@ -32,6 +32,7 @@
 
  - Chrome
  - Firefox
+ - Chrome for Android
 
  ### Author
 
