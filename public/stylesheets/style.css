@@ -331,7 +331,6 @@ img#surprised {
 
 	footer {
 		justify-self: end;
-		/* align-self: end; */
 		text-align: right;
 		z-index: -2;
 	}
@@ -428,7 +427,6 @@ img#surprised {
 		grid-column: 2/3;
 		grid-row: 2/5;
 		justify-self: center;
-		/* align-self: start; */
 		text-align: center;
 	}
 	img#books {
@@ -437,6 +435,5 @@ img#surprised {
 		position: sticky;
 		padding-right: 0;
 		padding-top: 1rem;
-		
 	}
 }
