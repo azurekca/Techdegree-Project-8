@@ -66,11 +66,6 @@ router.get('/new', (req, res) => {
 	res.render('books/new-book', { book: {}, title: 'New Book' }); // passing in an empty object for book so pug form doesn't throw undefined error
 });
 
-/* Search for books and display results. */
-router.get('/search', asyncHandler(async (req, res) => {
-  
-}))
-
 /* POST create book. */
 router.post('/', asyncHandler(async (req, res) => {
 		let book;
